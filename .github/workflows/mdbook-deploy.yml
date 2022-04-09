@@ -19,6 +19,8 @@ jobs:
         with:
           mdbook-version: '0.4.17'
           # mdbook-version: 'latest'
+          
+      - run: cargo install mdbook-admonish
 
       - run: mdbook build
 
