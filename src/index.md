@@ -13,5 +13,5 @@
 </blockquote>
 
 ```admonish note
-This is only a demo version that I quickly made. It will have missing images, features and other things we will add later. But just to give you an idea of what it could look like... I wanted to make something like this first :)
+This site is a work in progress!
 ```

@@ -1,21 +1,15 @@
-# Document Information
+# About
+## Contributions
 
-This guide is a work in progress :D
+Contributions are welcome! Come join us on the [Piano VI Discord server](https://discord.gg/rEx9Vr662z) and help us make piano-ing more accessible to everyone :D
 
 ## Changelog
 
-Current version: v0.1.1 (9 April 2022)
+Current version: v0.1.2 (9 April 2022)
 
 - More content
 - Added better formatting, quotes, illustrations
 - Book cover
-
-## Things to do
-
-- Brainstorm helpful tips
-- Making the tips concise, bolding keywords
-- Ordering them nicely
-- Assigned to Adrian – fix table of contents and other formatting
 
 ## Credits
 

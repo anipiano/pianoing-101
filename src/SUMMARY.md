@@ -1,6 +1,6 @@
 # Summary
 
 - [Home](./index.md)
-- [Document Information](./info.md)
+- [About](./about.md)
 - [General/non-technical](./general.md)
 - [Technical tips](./technical.md)
