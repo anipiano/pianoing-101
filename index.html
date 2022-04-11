@@ -25,13 +25,14 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/sidebar-style.css">
     </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -39,11 +40,9 @@
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
-
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
-
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -76,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="info.html"><strong aria-hidden="true">2.</strong> Document Information</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">2.</strong> About</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -111,6 +110,9 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        <a href="https://github.com/pianoguides/pianoguides.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -135,6 +137,9 @@
 
                 <div id="content" class="content">
                     <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
                         <center>
 	<h1 id="piano-ing-101"><a class="header" href="#piano-ing-101">Piano-ing 101</a></h1>
 	<h2 style="margin-top: 1em; font-style: italic">Written by the contributors from piano VI's server</h2>
@@ -150,14 +155,14 @@
 <p>Note</p>
 </div>
 <div>
-<p>This is only a demo version that I quickly made. It will have missing images, features and other things we will add later. But just to give you an idea of what it could look like... I wanted to make something like this first :)</p>
+<p>This site is a work in progress!</p>
 </div>
 </div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="next" href="info.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -166,7 +171,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="next" href="info.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -184,5 +189,6 @@
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/js/sidebar.js"></script>
     </body>
 </html>

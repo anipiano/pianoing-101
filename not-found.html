@@ -3,7 +3,8 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Document Information - Piano-ing 101</title>
+        <title>Page not found - Piano-ing 101</title>
+        <base href="/">
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -25,13 +26,14 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/sidebar-style.css">
     </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -39,11 +41,9 @@
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
-
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
-
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="info.html" class="active"><strong aria-hidden="true">2.</strong> Document Information</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">2.</strong> About</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -111,6 +111,9 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        <a href="https://github.com/pianoguides/pianoguides.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -135,56 +138,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-information"><a class="header" href="#document-information">Document Information</a></h1>
-<p>This guide is a work in progress :D</p>
-<h2 id="changelog"><a class="header" href="#changelog">Changelog</a></h2>
-<p>Current version: v0.1.1 (9 April 2022)</p>
-<ul>
-<li>More content</li>
-<li>Added better formatting, quotes, illustrations</li>
-<li>Book cover</li>
-</ul>
-<h2 id="things-to-do"><a class="header" href="#things-to-do">Things to do</a></h2>
-<ul>
-<li>Brainstorm helpful tips</li>
-<li>Making the tips concise, bolding keywords</li>
-<li>Ordering them nicely</li>
-<li>Assigned to Adrian – fix table of contents and other formatting</li>
-</ul>
-<h2 id="credits"><a class="header" href="#credits">Credits</a></h2>
-<table><thead><tr><th></th><th></th></tr></thead><tbody>
-<tr><td><strong>Project lead</strong></td><td>JChan</td></tr>
-<tr><td><strong>Art</strong></td><td>NFmusic</td></tr>
-<tr><td><strong>Contributions</strong></td><td>birb, FrozenFighter, pianoVI, samg, Hung Doan, Yang, aidswidjaja, myehs :D, LIN</td></tr>
-<tr><td><strong>Formatting and wonderful design</strong></td><td>FrozenFighter, aidswidjaja</td></tr>
-</tbody></table>
-<blockquote>
-<center>
-	<p style='font-size: 20px'><span style="font-style: italic">“Ganbatte!" </span><br><strong>― Best Boi: aidswidjaja</strong>
-</center>
-</blockquote>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="404-not-found-_"><a class="header" href="#404-not-found-_">404 Not Found &gt;_&lt;</a></h1>
+<p>We couldn't find that page... this could be because the address the document has been changed, moved or deleted. </p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="general.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="general.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
@@ -200,5 +169,6 @@
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/js/sidebar.js"></script>
     </body>
 </html>

@@ -25,13 +25,14 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/css/sidebar-style.css">
     </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -39,11 +40,9 @@
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
-
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
-
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -76,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="info.html"><strong aria-hidden="true">2.</strong> Document Information</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html" class="active"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">2.</strong> About</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/non-technical</a></li><li class="chapter-item expanded "><a href="technical.html" class="active"><strong aria-hidden="true">4.</strong> Technical tips</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -111,6 +110,9 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        <a href="https://github.com/pianoguides/pianoguides.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -135,6 +137,9 @@
 
                 <div id="content" class="content">
                     <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
                         <h1 id="technical-tips"><a class="header" href="#technical-tips">Technical tips</a></h1>
 <h2 id="general-techniques"><a class="header" href="#general-techniques">General techniques</a></h2>
 <blockquote>
@@ -144,14 +149,22 @@
 <ol>
 <li>In general, keep your fingers <strong>curved</strong> when playing. </li>
 <li>Practise hands <strong>separately</strong> before putting them together.</li>
-<li>Find the <strong>best fingerings</strong> when you're practising slowly, don't practice random fingerings only to find that they don't work for playing faster → experiment with what works best or just ask!</li>
+<li>Find the <strong>best fingerings</strong> when you're practising slowly. Don't practice random fingerings only to find that they don't work for playing faster → experiment with what works best or just ask!</li>
 <li>Focus on bringing out the <strong>melody</strong>, so maybe just playing the melody instead of all the other notes can be helpful!</li>
 <li>Make sure to have <strong>good posture</strong> and <strong>relax</strong> your entire body (e.g. hands and shoulders)</li>
 <li>Have <strong>space</strong> between your elbows and body; it’ll give you more freedom to play!</li>
 <li>Use <strong>arm weight!</strong> Don’t limit your playing to only your fingers.</li>
-<li>Try sitting in a <strong>higher seat position</strong>, most pianists’ elbows are around parallel with the piano keys → this will allow you to put more weight into the keyboard!</li>
+<li>Try sitting in a <strong>higher seat position</strong>. Most pianists’ elbows are around parallel with the piano keys → this will allow you to put more weight into the keyboard!</li>
 <li><strong>Do not implement pedalling</strong> until you are confident that you can play the notes correctly! Playing with a pedal can make it harder to hear if you’re making a nice sound on individual notes.</li>
 </ol>
+<div class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+</div>
+<div>
+<p>Before playing your piece, think about what you are going to play first! This makes you more prepared for the piece and less stressed out.</p>
+</div>
+</div>
 <h2 id="scales"><a class="header" href="#scales">Scales</a></h2>
 <blockquote>
 <p>Piano teachers: &quot;So, have you practised your scales?&quot; <br>Student: Disapparates <br>       <strong>— LIN</strong></p>
@@ -159,10 +172,11 @@
 <ol>
 <li>Incredibly important for building <strong>finger dexterity</strong>.</li>
 <li>Practising scales are a great way to learn how to <strong>lift</strong> your fingers and to <strong>modify</strong> wrist position while making turns.</li>
-<li>Scales are useful for <del>Vene</del> runs </li>
-<li>With scales, try, practicing tucking your thumb under your hand to cross over to the next note that is played with your thumb</li>
-<li>Amazing way to warm up your fingers/hands, which is important to play better as well as not sustain any injuries</li>
-<li>Don’t accent notes with the thumb</li>
+<li>Scales are useful for <del>Vene</del> runs.</li>
+<li>With scales, try, practicing tucking your thumb under your hand to cross over to the next note that is played with your thumb.</li>
+<li>Amazing way to warm up your fingers/hands, which is important to play better as well as not sustain any injuries.</li>
+<li>Don’t accent notes with the thumb.</li>
+<li>At a fast tempo, you will usually need to also shift your hand position along with tucking your thumb.</li>
 </ol>
 <div class="admonition tip">
 <div class="admonition-title">
@@ -174,63 +188,84 @@
 </div>
 <h2 id="pedalling"><a class="header" href="#pedalling">Pedalling</a></h2>
 <blockquote>
-<p>&quot;Press the option P to hold&quot; <br>       <strong>— SamG</strong></p>
+<p>&quot;Why is coming up with a quote for pedal so hard? :BigSweat:&quot; <br>       <strong>— SamG</strong></p>
 </blockquote>
 <ol>
-<li>Advice from the Piano VI The Great, “Pedal before it gets muddy,” it’s actually very simple advice when it comes to overpedalling</li>
-<li>Think of pedalling as extra fingers holding down the notes, as such, you want to make sure you’re only sustaining the relevant harmonies</li>
+<li>Advice from the Piano VI The Great, “Pedal before it gets muddy,” it’s actually very simple advice when it comes to <strong>overpedalling</strong>.</li>
+<li>Think of pedalling as extra fingers holding down the notes, as such, you want to make sure you’re only sustaining the relevant <strong>harmonies</strong>.</li>
+<li>A good rule of thumb is to lift the pedal every time the <strong>harmony</strong> changes.</li>
 </ol>
 <h2 id="arpeggios"><a class="header" href="#arpeggios">Arpeggios</a></h2>
 <blockquote>
 <p>How to play Arpeggios: Don’t <br> <strong>— Piano VI</strong></p>
 </blockquote>
 <ol>
-<li>
-<p>Make sure you know the arpeggio scale: e.g. for F-major arpeggio, it would be F, A, C, F. </p>
-</li>
-<li>
-<p><strong>Wrist position</strong> is very important:</p>
-<ul>
-<li>On descending Right hand: having a high wrist is very helpful </li>
-</ul>
-</li>
-<li>
-<p>Make sure your hands are <strong>ascending/descending along with</strong> the notes. Having them stay in the same position will make it harder for you to reach the notes!</p>
-</li>
-<li>
-<p>Try practising the arpeggios with different rhythms like making the first note of the pattern slow while the rest are quick. Switch them up, and visit the original rhythm from time to time until you can play it. This can help you familiarize the movement and position of your hand on every note</p>
-</li>
+<li>Make sure you <strong>know</strong> the arpeggio scale.</li>
 </ol>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+</div>
+<div>
+<p>For F-major arpeggio, it would be F, A, C, F.</p>
+</div>
+</div>
+<ol start="2">
+<li><strong>Wrist position</strong> is very important:</li>
+</ol>
+<div class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+</div>
+<div>
+<p>On a descending right hand, having a high wrist is very helpful.</p>
+</div>
+</div>
+<ol start="3">
+<li>Make sure your hands are <strong>ascending/descending along with</strong> the notes. Having them stay in the same position will make it harder for you to reach the notes!</li>
+<li>Try practising the arpeggios with different rhythms like making the first note of the pattern slow while the rest are quick. Switch them up, and visit the original rhythm from time to time until you can play it. This can help you familiarise the movement and position of your hand on every note.</li>
+</ol>
+<table><thead><tr><th>Normal</th><th>Dotted</th><th>Triplets</th></tr></thead><tbody>
+<tr><td><img src="img/runs-example-normal.png" alt="Normal" /></td><td><img src="img/runs-example-dotted.png" alt="Normal" /></td><td><img src="img/runs-example-normal.png" alt="Normal" /></td></tr>
+</tbody></table>
 <h2 id="phrasing-and-dynamics"><a class="header" href="#phrasing-and-dynamics">Phrasing and Dynamics</a></h2>
 <blockquote>
-<p>It is passion in one’s playing that captivates the listeners, less so wrong notes (that’s just a “jazzy addition”) <br>       <strong>— FrozenFighter</strong></p>
+<p>It is passion in one’s playing that captivates the listeners, less so wrong notes <br> <em>(that’s just a “jazzy addition”)</em> <br>       <strong>— FrozenFighter</strong></p>
 </blockquote>
 <ol>
-<li>Make sure to pay attention to phrasing, “rising up and going back down” - this can often be seen with slurs as it <strong>“rises”</strong> and <strong>“falls”</strong></li>
-<li><strong>Raising</strong> your <strong>wrist</strong> can be a great way to make a note more <strong>quiet</strong></li>
+<li>Make sure to pay attention to phrasing, “rising up and going back down” - this can often be seen with slurs as it <strong>“rises”</strong> and <strong>“falls”</strong>.</li>
+<li><strong>Raising</strong> your <strong>wrist</strong> can be a great way to make a note more <strong>quiet</strong>.</li>
 <li><strong>Dropping</strong> your <strong>wrist</strong> on a chord or note can be a great way to <strong>bring it out!</strong></li>
-<li><strong>Sing</strong> the melody of the song! Often times, the shape of your voice on the melody should be the same shape of the melody when you play on the piano</li>
+<li><strong>Sing</strong> the melody of the song! Often times, the shape of your voice on the melody should be the same shape of the melody when you play on the piano.</li>
 <li>Pay attention to the room you’re playing in, and try to use the <strong>acoustics</strong> of the room to your full <strong>advantage</strong></li>
 <li>If you’re not sure about interpretation, try and <strong>look at</strong> how other pianists have played and interpreted it.</li>
 </ol>
+<div class="admonition tip">
+<div class="admonition-title">
+<p>Tip</p>
+</div>
+<div>
+<p>Here’s a great piece recommended by JChan which demonstrates phrasing and attention to dynamics really well: <a href="https://youtu.be/FxhbAGwEYGQ">Schubert’s Impromptu No. 3 (performed by Vladimir Horowitz)</a>. You can really see how the piece seems to rise and fall – with sections of increasing intensity becoming louder.</p>
+</div>
+</div>
 <h2 id="playing-fast-notes"><a class="header" href="#playing-fast-notes">Playing Fast Notes</a></h2>
 <blockquote>
 <p>&quot;If you can play it slowly, you can play it quickly&quot; <br>       <strong>— Ben Lee (popularised by TwoSetViolin)</strong> <br> Fyi: don't be like Ben Lee</p>
 </blockquote>
 <ol>
-<li>As a piece gets faster, you use more fingers rather than wrist.</li>
-<li>Always relax hands and lift fingers.</li>
-<li>Practise slowly first, gradually raising the speed (preferably with a metronome!).</li>
+<li>As a piece gets faster, you use more <strong>fingers</strong> rather than wrist.</li>
+<li>Always <strong>relax</strong> hands and <strong>lift</strong> fingers.</li>
+<li>Practise <strong>slowly</strong> first, gradually raising the speed (preferably with a metronome!).</li>
 </ol>
 <p><img src="img/playing-fast-notes-pathetique.png" alt="Excerpt from Beethoven's Pathetique" /></p>
 <center>
-<em>This excerpt from <a href="https://s9.imslp.org/files/imglnks/usimg/f/fb/IMSLP30364-PMLP01410-Beethoven_Sonaten_Piano_Band1_Peters_Op13.pdf">Beethoven’s Sonata No. 8 (Pathetique)</a> (1st movement) is a great example of why the above tips are important to put into *practice*!</em>
+<em>This excerpt from <a href="https://s9.imslp.org/files/imglnks/usimg/f/fb/IMSLP30364-PMLP01410-Beethoven_Sonaten_Piano_Band1_Peters_Op13.pdf">Beethoven’s Sonata No. 8 (Pathetique)</a> (1st movement) is a great example of why the above tips are important to put into *practise*!</em>
 </center>
 <h2 id="practicing-runs"><a class="header" href="#practicing-runs">Practicing Runs</a></h2>
 <blockquote>
 <p>&quot;vene runs are great&quot; <br>       <strong>— null_awe</strong> <br> Watch them on <a href="https://youtu.be/oGt5KVv24Ag?t=1212">Animenz Piano Concerto | Happy Birthday! ft. 69 Pianists</a> (timestamped!)</p>
 </blockquote>
-<p>Steps to play <del>Vene runs:</del></p>
+<p>Steps to play <del>Vene</del> runs:</p>
 <ol>
 <li>
 <p>Look for any <strong>patterns</strong> (scales, arpeggios, etc.) in the runs and mark them out. This will help simplify the run for you.</p>
@@ -241,7 +276,7 @@
 <li>
 <p>Practise each section of the run slowly, move your hand in the direction of the run, and use your elbow and maybe even the whole arm to direct your hand. This makes it easier to play the run quickly. </p>
 <ul>
-<li>accent key notes such as those on the first beat/signifying the start of the pattern </li>
+<li>Accent key notes such as those on the first beat/signifying the start of the pattern </li>
 </ul>
 </li>
 <li>
@@ -258,12 +293,22 @@
 </li>
 </ol>
 <p>Do the steps above and the run will end up really easy to play.</p>
-<p>(Don't play any run with the pedal until you have fully learnt it, the pedal will prevent you from knowing the &quot;original&quot; sound of the run.)</p>
+<div class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+</div>
+<div>
+<p>Don't play any run with the pedal until you have fully learnt it, the pedal will prevent you from knowing the &quot;original&quot; sound of the run.</p>
+</div>
+</div>
 <h3 id="extra-practice-tips-for-runs"><a class="header" href="#extra-practice-tips-for-runs">Extra practice tips for runs</a></h3>
 <ul>
 <li>Play the run in staccato - this helps you to articulate the notes.</li>
 <li>Play the run with over-exaggerated finger lifting and articulation - helps you articulate the notes and build strength.</li>
 <li>If the runs are at a constant note value (e.g., quaver), you can play the run in a dotted-quaver followed by a semiquaver rhythmic fashion. Then afterwards, you reverse it, so it comes a semiquaver followed by a dotted-quaver rhythmic pattern.</li>
+</ul>
+<p><img src="img/runs-example-dotted.png" alt="Dotted rhythm" /></p>
+<ul>
 <li>Play with run with “false staccatos”,  where you do a firm staccato without collapsing your fingers, but your fingers still remain on the keys after the “bounce” of the staccato)</li>
 </ul>
 <h2 id="trilling"><a class="header" href="#trilling">Trilling</a></h2>
@@ -329,37 +374,34 @@
 </li>
 <li>
 <p>Don’t be intimidated by passages such as:</p>
+<p><img src="img/erlkonig.png" alt="Schubert’s Erlkönig" /></p>
 <center>
  <em>The opening to <a href="https://youtu.be/O4pC2Cc_hAo">Liszt’s transcription of Schubert’s Erlkönig</a></em>
  </center>
  <br>
-<ul>
-<li>Loosen up your wrists, but keep your fingers at the same distance. A technique to reduce fatigue would be to alternate your 4th and 5th finger between each octave spam, similar to how you alternate your fingers during a long trill.</li>
-</ul>
 </li>
 </ol>
-<div class="admonition note">
+<div class="admonition example">
 <div class="admonition-title">
-<p>Note to editor</p>
+<p>Example</p>
 </div>
 <div>
-<p>Can't find the transcription on IMSLP - need to replace image later</p>
+<p>For the above example, loosen up your wrists, but keep your fingers at the same distance. A technique to reduce fatigue would be to alternate your 4th and 5th finger between each octave spam, similar to how you alternate your fingers during a long trill.</p>
 </div>
 </div>
 <ol start="4">
-<li>
-<p>Do not over-practise. Once your arms begin to strain, it’s time to take a break. </p>
-</li>
-<li>
-<p>Don't lose hope. One shall eventually reach the level of doing Heroic Polonaise at full speed with practice (the writer himself hasn't gotten to this yet).</p>
-</li>
-<li>
-<p>After mastering the octave jack spam, you’re gonna also see improvements in other areas outside playing the piano. ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)</p>
-<ul>
-<li>p.s. : i have hands that aren’t that big, so when playing octaves, i mostly have to play my fingers flat instead of curving them like you usually do.</li>
-</ul>
-</li>
+<li>Do not over-practise. Once your arms begin to strain, it’s time to take a break. </li>
+<li>Don't lose hope. One shall eventually reach the level of doing Heroic Polonaise at full speed with practice (the writer himself hasn't gotten to this yet).</li>
+<li>After mastering the octave <del>jack</del> spam, you’re gonna also see improvements in other areas outside playing the piano. ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)</li>
 </ol>
+<div class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+</div>
+<div>
+<p>I have hands that aren’t that big, so when playing octaves, I mostly have to play my fingers flat instead of curving them like you usually do.</p>
+</div>
+</div>
 <h2 id="chords"><a class="header" href="#chords">Chords</a></h2>
 <blockquote>
 <p>&quot;I – vi – IV  – V in C Major is all you’ll ever need&quot; <br>       <strong>— Music Theory (probably)</strong></p>
@@ -388,6 +430,22 @@
 <li>When glissing up, the 2nd - 4th finger is what I usually go to. The idea is that your thumb is as resilient in maintaining the gliss as 2-3 of your other fingers. However, in some cases, I would actually use my 4th and 5th finger to gliss.</li>
 <li><strong>READ:</strong> gliss with any finger you like, this is just an example.</li>
 <li><strong>TRIM YOUR NAILS IF YOU’RE GLISSING WITH THEM.</strong></li>
+</ul>
+<h3 id="xeters-gliss"><a class="header" href="#xeters-gliss">Xeter's gliss</a></h3>
+<ul>
+<li>
+<p>Keep in mind that building a resistance against the pain that you feel when playing a glissando takes time so you have to be very patient. Your fingers will get used to it and the more you do it the less painful it will be.</p>
+</li>
+<li>
+<p>When glissing down one of the most important factors is your wrist positioning. When trying to reduce pain and injuries it's better to use the top of your thumb than it is to use the side. In order to be able to use the top part you have to put your wrist up quite high and a little bit into the direction which you will be glissing into. Try to lead the movement from your wrist and not from your arm or fingers.</p>
+</li>
+<li>
+<p>For upwards glisses there are 2 different ways in which they can be done </p>
+<ol>
+<li>You can use the nail part of your thumb resulting in a slightly cleaner gliss</li>
+<li>You can use the part in between your 1st and 2nd knuckle.</li>
+</ol>
+</li>
 </ul>
 
                     </main>
@@ -421,5 +479,6 @@
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/js/sidebar.js"></script>
     </body>
 </html>
