@@ -13,5 +13,13 @@ command = "mdbook-admonish"
 [output]
 
 [output.html]
+default-theme = "light"
+preferred-dark-theme = "light"
 additional-css = ["theme/css/mdbook-admonish.css", "theme/css/sidebar-style.css"]
 additional-js = ["theme/js/sidebar.js"]
+git-repository-url = "https://github.com/pianoguides/pianoguides.github.io"
+input-404 = "not-found.md"
+
+[output.html.print]
+enable = true    # include support for printable output
+page-break = true # insert page-break after each chapter

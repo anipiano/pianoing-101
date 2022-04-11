@@ -5,7 +5,7 @@ Contributions are welcome! Come join us on the [Piano VI Discord server](https:/
 
 ## Changelog
 
-Current version: v0.1.2 (9 April 2022)
+Current version: v0.1.3 (10 April 2022)
 
 - More content
 - Added better formatting, quotes, illustrations
@@ -13,11 +13,12 @@ Current version: v0.1.2 (9 April 2022)
 
 ## Credits
 
-|                                 |                                                                         |
+|                                     |                                                                                 |
 |-------------------------------------|---------------------------------------------------------------------------------|
 | **Project lead**                    | JChan                                                                           |
 | **Art**                             | NFmusic                                                                         |
-| **Contributions**                   | birb, FrozenFighter, pianoVI, samg, Hung Doan, Yang, aidswidjaja, myehs :D, LIN |
+| **Contributions**                   | birb, FrozenFighter, Piano VI, samg, Hung Doan, Yang :D, aidswidjaja, myehs :D, LIN, Blue Specks, Xeter |
+| **Resources**                       | Frozen, JChan                                                                   |
 | **Formatting and wonderful design** | FrozenFighter, aidswidjaja                                                      |
 
 <blockquote>

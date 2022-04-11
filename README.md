@@ -19,6 +19,6 @@ For CI/CD, we use a GitHub Actions workflow (stored in [mdbook-deploy.yml](https
 - [cargo](https://crates.io/) 1.48.0
 - [mdBook](https://rust-lang.github.io/mdBook/) v0.4.17
 - [mdbook-admonish](https://github.com/tommilligan/mdbook-admonish) 1.4.0
-- [mdBook-pagetoc](https://github.com/JorelAli/mdBook-pagetoc)
+- [mdBook-pagetoc](https://github.com/JorelAli/mdBook-pagetoc)*
 
 *Does not require local install or setup.

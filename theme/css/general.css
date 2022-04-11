@@ -1,13 +1,38 @@
-/* Base styles and content styles */
+/* Imports and includes */
 
 @import url('https://rsms.me/inter/inter.css');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 @supports (font-variation-settings: normal) {
-html { font-family: 'Inter var', sans-serif; }
+html { font-family: 'Lora', sans-serif; }
 }
 
 @import 'variables.css';
+
+/* Custom features */
+
+.flexbox-side-content {
+    display: block;
+    margin: auto;
+}
+
+@media (min-width: 755px) {
+    .flexbox {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .flexbox-main-content {
+        width: 50%;
+    }
+
+    .flexbox-side-content {
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+/* Base styles and content styles */
 
 :root {
     /* Browser default font-size is 16px, this way 1 rem = 10px */
@@ -15,7 +40,7 @@ html { font-family: 'Inter var', sans-serif; }
 }
 
 html {
-    font-family: "Inter", sans-serif;
+    font-family: "Lora", "Times" sans-serif;
     color: var(--fg);
     background-color: var(--bg);
     text-size-adjust: none;
@@ -26,6 +51,11 @@ body {
     margin: 0;
     font-size: 1.6rem;
     overflow-x: hidden;
+}
+
+li {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 h1, h2, h3, h4 {
