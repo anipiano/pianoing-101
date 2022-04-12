@@ -48,24 +48,18 @@ Try playing scales at the beginning of your practice session and aim for clarity
 
 > How to play Arpeggios: Don’t <br> **— Piano VI**
 
-1. Make sure you **know** the arpeggio scale.
-
-```admonish example
-For F-major arpeggio, it would be F, A, C, F. 
-```
-
-2. **Wrist position** is very important:
-
-```admonish tip
-On a descending right hand, having a high wrist is very helpful. 
-```
-
+1. Make sure you **know** the arpeggio scale (e.g for F-major arpeggio, it would be F, A, C, F. )
+2. **Wrist position** is very important
 3. Make sure your hands are **ascending/descending along with** the notes. Having them stay in the same position will make it harder for you to reach the notes!
 4. Try practising the arpeggios with different rhythms like making the first note of the pattern slow while the rest are quick. Switch them up, and visit the original rhythm from time to time until you can play it. This can help you familiarise the movement and position of your hand on every note.
 
 |Normal                                |Dotted                                |Triplets                              |
 |--------------------------------------|--------------------------------------|--------------------------------------|
 |![Normal](img/runs-example-normal.png)|![Normal](img/runs-example-dotted.png)|![Normal](img/runs-example-normal.png)|
+
+```admonish tip
+On a descending right hand, having a high wrist is very helpful. 
+```
 
 ## Phrasing and Dynamics
 
