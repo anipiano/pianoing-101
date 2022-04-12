@@ -192,7 +192,7 @@ You can attempt to practice your jumps with your eyes closed if you want to memo
 6. After mastering the octave ~~jack~~ spam, you’re gonna also see improvements in other areas outside playing the piano. ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)
 
 ```admonish note
-I have hands that aren’t that big, so when playing octaves, I mostly have to play my fingers flat instead of curving them like you usually do.
+**A note from Myehs:** I have hands that aren’t that big, so when playing octaves, I mostly have to play my fingers flat instead of curving them like you usually do.
 ```
 
 ## Chords
@@ -213,11 +213,31 @@ I have hands that aren’t that big, so when playing octaves, I mostly have to p
 
 ### Myehs' gliss
 
+<div class="flexbox" style="margin-bottom: 0px">
+<div class="flexbox flexbox-main-content" style="width: 80%; margin-bottom: 0px">
+
 - One thing to keep in mind: when glissing, what you’re trying to do is to keep the same position while sliding your finger from point A to point B. The less friction you have with the keys, the better and less painful.
 - When glissing down, I usually gliss with the 1st finger, like the position of the hand as shown in picture.
+
+</div>
+
+<div class="flexbox flexbox-side-content" style="width: 10%; margin-bottom: 0px">
+
+![Four fingers](img/four-fingers.jpg)
+
+</div>
+</div>
+
 - When glissing up, the 2nd - 4th finger is what I usually go to. The idea is that your thumb is as resilient in maintaining the gliss as 2-3 of your other fingers. However, in some cases, I would actually use my 4th and 5th finger to gliss.
-- **READ:** gliss with any finger you like, this is just an example.
-- **TRIM YOUR NAILS IF YOU’RE GLISSING WITH THEM.**
+
+
+```admonish note
+Gliss with any finger you like, this is just an example.
+```
+
+```admonish warning
+Trim your nails if you're glissing with them.
+```
 
 ### Xeter's gliss
 

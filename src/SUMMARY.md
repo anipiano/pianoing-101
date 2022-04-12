@@ -2,5 +2,6 @@
 
 - [Home](./index.md)
 - [About](./about.md)
-- [General/non-technical](./general.md)
-- [Technical tips](./technical.md)
+- [General/Non-Technical](./general.md)
+- [Technical Tips](./technical.md)
+- [Thank You](./thank-you.md)
