@@ -16,6 +16,172 @@ html { font-family: 'Lora', sans-serif; }
     margin: auto;
 }
 
+.custom-button { /* https://bulma.io/documentation/elements/button/ */
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    --white: white;
+    --white-invert: #0a0a0a;
+    --black: #0a0a0a;
+    --black-invert: white;
+    --light: whitesmoke;
+    --light-invert: rgba(0, 0, 0, 0.7);
+    --dark: #363636;
+    --dark-invert: #fff;
+    --primary: #00d1b2;
+    --primary-invert: #fff;
+    --primary-light: #ebfffc;
+    --primary-dark: #00947e;
+    --link: #485fc7;
+    --link-invert: #fff;
+    --link-light: #eff1fa;
+    --link-dark: #3850b7;
+    --info: #3e8ed0;
+    --info-invert: #fff;
+    --info-light: #eff5fb;
+    --info-dark: #296fa8;
+    --success: #48c78e;
+    --success-invert: #fff;
+    --success-light: #effaf5;
+    --success-dark: #257953;
+    --warning: #ffe08a;
+    --warning-invert: rgba(0, 0, 0, 0.7);
+    --warning-light: #fffaeb;
+    --warning-dark: #946c00;
+    --danger: #f14668;
+    --danger-invert: #fff;
+    --danger-light: #feecf0;
+    --danger-dark: #cc0f35;
+    --expo: #ffd257;
+    --expo-invert: white;
+    --expo-light: #fffaeb;
+    --expo-dark: #946c00;
+    --love: #f14668;
+    --love-invert: white;
+    --love-light: #feecf0;
+    --love-dark: #cc0f35;
+    --patreon-invert: white;
+    --patreon-light: #feeeeb;
+    --patreon-dark: #c01d07;
+    --rss-invert: white;
+    --rss-light: #fef2ec;
+    --rss-dark: #c1460b;
+    --bleeding: #abf47c;
+    --bleeding-invert: rgba(0, 0, 0, 0.7);
+    --bleeding-light: #f3fdec;
+    --bleeding-dark: #3c880b;
+    --sass: #bf4080;
+    --sass-invert: white;
+    --sass-light: #faf0f5;
+    --sass-dark: #b03b76;
+    --amazon-invert: rgba(0, 0, 0, 0.7);
+    --amazon-light: #fffaeb;
+    --amazon-dark: #946f00;
+    --sponsor: #ea4aaa;
+    --sponsor-invert: white;
+    --sponsor-light: #fdedf6;
+    --sponsor-dark: #c0167c;
+    --twitter-invert: white;
+    --twitter-light: #ecf6fd;
+    --twitter-dark: #10609e;
+    --videos: #48c78e;
+    --videos-invert: white;
+    --videos-light: #effaf5;
+    --videos-dark: #257953;
+    --extensions: #3e8ed0;
+    --extensions-invert: white;
+    --extensions-light: #eff5fb;
+    --extensions-dark: #296fa8;
+    --bootstrap-invert: white;
+    --bootstrap-light: #f4f2f8;
+    --bootstrap-dark: #73579e;
+    --bootstrap: #6f5499;
+    --github: #333333;
+    --twitter: #55acee;
+    --patreon: #f96854;
+    --patreon-blue: #052d49;
+    --fortyfour: #5f45bb;
+    --amazon: #ffd863;
+    --bleeding-green: #abf47c;
+    --bleeding-red: #ca1f26;
+    --rss: #f26522;
+    --search: #00d1b2;
+    --search-light: #ebfffc;
+    --search-dark: #00947e;
+    --html5: #e44d26;
+    --html5-invert: #ebebeb;
+    --hl-green: #37e7ac;
+    --hl-cyan: #51fbde;
+    --hl-blue: #00b2ff;
+    --hl-purple: #9a89b4;
+    --hl-lavender: #9b6dff;
+    --hl-pink: #ff5cd3;
+    --hl-rose: #ff6b9d;
+    --hl-orange: #ff9970;
+    --hl-yellow: #fed604;
+    --hl-gray-01: #d9e0e8;
+    --hl-gray-02: #808182;
+    --hl-gray-09: #1f2330;
+    --hl-color: var(--hl-orange);
+    --hl-background: var(--hl-gray-09);
+    --container-width: calc(100vw - 3rem);
+    --container-width-desktop: 960px;
+    --container-width-widescreen: 1152px;
+    --container-width-fullhd: 1344px;
+    --bd-index-gap: 3rem;
+    --bd-index-vertical: 3rem;
+    --newsletter-strip-size: 16px;
+    --newsletter-border-size: 1.5rem;
+    --docs-side-padding: 1rem;
+    --docs-outer: 3rem;
+    --docs-inner: 3rem;
+    --snippet-spacing: 1.5rem;
+    box-sizing: inherit;
+    margin: 0;
+    -webkit-appearance: none;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: .375em;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 2rem;
+    height: 2.5em;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    user-select: none;
+    border-width: 1px;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    border-color: transparent;
+    margin-bottom: .5rem;
+    background-color: #00947e;
+    color: #ebfffc !important;
+    margin-right: .5rem;
+}
+
+a.custom-button {
+    text-decoration: none;
+}
+
+a.custom-button:hover {
+    text-decoration: none !important;
+    filter: brightness(90%);
+}
+
+.resources-button {
+    width: 85%;
+    justify-content: left;
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+
 @media (min-width: 755px) {
     .flexbox {
         display: flex;
@@ -31,6 +197,35 @@ html { font-family: 'Lora', sans-serif; }
     }
 
 }
+
+/* Button styles */
+
+.resources-button-arranging {
+    background-color: #3e56c4;
+    color: #d9e0ff !important;
+}
+
+.resources-button-composition {
+    background-color: #ff9100;
+    color: #ffe9cc !important;
+}
+
+.resources-button-engraving {
+    background-color: #f03a5f;
+    color: #ffd9e0 !important;
+}
+
+.resources-button-sheetmusic {
+    background-color: #3488ce;
+    color: #d6ecff !important;
+}
+
+.resources-button-techniquepractice {
+    background-color: #7b0ba1;
+    color: #f5d6ff !important;
+}
+
+/* advice from Adrian: I know people generally seppuku at the use of !important, but imho there's a time and place for it. I think this meets one of them :D given limited scope and the alternative to be adding yet another CSS override for theme.css (which isn't too bad, but this is honestly cleaner and also easier to trace for debugging */
 
 /* Base styles and content styles */
 
