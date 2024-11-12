@@ -1,4 +1,5 @@
 # Piano-ing 101
+
 > "Just put your hands over it and play it!"
 
 A guide to piano and music, by contributors from Piano VI's server.
@@ -15,10 +16,10 @@ For CI/CD, we use a GitHub Actions workflow (stored in [mdbook-deploy.yml](https
 
 ### Dependencies
 
-- [Rust](https://www.rust-lang.org/) v1.60.0
-- [cargo](https://crates.io/) 1.48.0
-- [mdBook](https://rust-lang.github.io/mdBook/) v0.4.17
-- [mdbook-admonish](https://github.com/tommilligan/mdbook-admonish) 1.4.0
+- [Rust](https://www.rust-lang.org/) 1.82.0
+- [cargo](https://crates.io/) 1.82.0
+- [mdBook](https://rust-lang.github.io/mdBook/) 0.4.42
+- [mdbook-admonish](https://github.com/tommilligan/mdbook-admonish) 1.18.0
 - [mdBook-pagetoc](https://github.com/JorelAli/mdBook-pagetoc)*
 
 *Does not require local install or setup.
