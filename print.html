@@ -1,15 +1,14 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Piano-ing 101</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -27,23 +26,26 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/css/mdbook-admonish.css">
-        <link rel="stylesheet" href="theme/css/sidebar-style.css">
+        <link rel="stylesheet" href="theme/css/pagetoc.css">
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
+
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
+
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -51,50 +53,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Home</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">2.</strong> About</a></li><li class="chapter-item expanded "><a href="general.html"><strong aria-hidden="true">3.</strong> General/Non-Technical</a></li><li class="chapter-item expanded "><a href="technical.html"><strong aria-hidden="true">4.</strong> Technical Tips</a></li><li class="chapter-item expanded "><a href="free-resources.html"><strong aria-hidden="true">5.</strong> Free Resources</a></li><li class="chapter-item expanded "><a href="thank-you.html"><strong aria-hidden="true">6.</strong> Thank You</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -128,7 +161,7 @@
                     </div>
                 </div>
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -138,10 +171,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <!-- Page table of contents -->
-                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
-
-                        <center>
+                        <div class="content-wrap">
+                            <center>
 	<h1 style="1.6rem">Piano-ing 101</h1>
 	<h2 style="margin-top: 1em; font-style: italic">Written by the contributors from piano VI's server</h2>
 </center>
@@ -151,9 +182,12 @@
 	<p style='font-size: 20px'><span style="font-style: italic">“Just put your hands over it and play it!" </span><br><span style="font-size: 14px">― birb</span>
 </center>
 </blockquote>
-<div class="admonition note">
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
+<div id="admonition-note-title">
 <p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="index.html#admonition-note"></a>
 </div>
 <div>
 <p>This site is a work in progress!</p>
@@ -220,9 +254,12 @@
 <li>Take <strong>inspiration</strong> from great <strong>records/performances</strong></li>
 <li><strong>Set</strong> small <strong>attainable</strong> goals for each practice session!</li>
 </ol>
-<div class="admonition example">
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
 <div class="admonition-title">
+<div id="admonition-example-title">
 <p>Example</p>
+</div>
+<a class="admonition-anchor-link" href="general.html#admonition-example"></a>
 </div>
 <div>
 <p>“I’ll learn bars X - Y for this session.”</p>
@@ -269,9 +306,12 @@
 <li>Try sitting in a <strong>higher seat position</strong>. Most pianists’ elbows are around parallel with the piano keys → this will allow you to put more weight into the keyboard!</li>
 <li><strong>Do not implement pedalling</strong> until you are confident that you can play the notes correctly! Playing with a pedal can make it harder to hear if you’re making a nice sound on individual notes.</li>
 </ol>
-<div class="admonition tip">
+<div id="admonition-tip" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-title">
 <div class="admonition-title">
+<div id="admonition-tip-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip"></a>
 </div>
 <div>
 <p>Before playing your piece, think about what you are going to play first! This makes you more prepared for the piece and less stressed out.</p>
@@ -290,9 +330,12 @@
 <li>Don’t accent notes with the thumb.</li>
 <li>At a fast tempo, you will usually need to also shift your hand position along with tucking your thumb.</li>
 </ol>
-<div class="admonition tip">
+<div id="admonition-tip-1" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-1-title">
 <div class="admonition-title">
+<div id="admonition-tip-1-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip-1"></a>
 </div>
 <div>
 <p>Try playing scales at the beginning of your practice session and aim for clarity. Also try going up (crescendo) and then back down (decrescendo) in volume as you go up and down the keyboard with a scale.</p>
@@ -320,9 +363,12 @@
 <table><thead><tr><th>Normal</th><th>Dotted</th><th>Triplets</th></tr></thead><tbody>
 <tr><td><img src="img/runs-example-normal.png" alt="Normal" /></td><td><img src="img/runs-example-dotted.png" alt="Normal" /></td><td><img src="img/runs-example-normal.png" alt="Normal" /></td></tr>
 </tbody></table>
-<div class="admonition tip">
+<div id="admonition-tip-2" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-2-title">
 <div class="admonition-title">
+<div id="admonition-tip-2-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip-2"></a>
 </div>
 <div>
 <p>On a descending right hand, having a high wrist is very helpful.</p>
@@ -340,9 +386,12 @@
 <li>Pay attention to the room you’re playing in, and try to use the <strong>acoustics</strong> of the room to your full <strong>advantage</strong></li>
 <li>If you’re not sure about interpretation, try and <strong>look at</strong> how other pianists have played and interpreted it.</li>
 </ol>
-<div class="admonition tip">
+<div id="admonition-tip-3" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-3-title">
 <div class="admonition-title">
+<div id="admonition-tip-3-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip-3"></a>
 </div>
 <div>
 <p>Here’s a great piece recommended by JChan which demonstrates phrasing and attention to dynamics really well: <a href="https://youtu.be/FxhbAGwEYGQ">Schubert’s Impromptu No. 3 (performed by Vladimir Horowitz)</a>. You can really see how the piece seems to rise and fall – with sections of increasing intensity becoming louder.</p>
@@ -393,9 +442,12 @@
 </li>
 </ol>
 <p>Do the steps above and the run will end up really easy to play.</p>
-<div class="admonition note">
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
+<div id="admonition-note-title">
 <p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-note"></a>
 </div>
 <div>
 <p>Don't play any run with the pedal until you have fully learnt it, the pedal will prevent you from knowing the &quot;original&quot; sound of the run.</p>
@@ -445,17 +497,23 @@
 <li>Slowly raise the tempo again!</li>
 <li>Keep practising until you can play the section masterfully.</li>
 </ol>
-<div class="admonition tip">
+<div id="admonition-tip-4" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-4-title">
 <div class="admonition-title">
+<div id="admonition-tip-4-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip-4"></a>
 </div>
 <div>
 <p>See this more in-depth <a href="https://www.youtube.com/watch?v=Za3Cn834h34&amp;t=18s">video by WattKeys</a> into ‘shadowing jumping’ &amp; jumps in general.</p>
 </div>
 </div>
-<div class="admonition tip">
+<div id="admonition-bonus-tip" class="admonition admonish-tip" role="note" aria-labelledby="admonition-bonus-tip-title">
 <div class="admonition-title">
+<div id="admonition-bonus-tip-title">
 <p>Bonus tip!</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-bonus-tip"></a>
 </div>
 <div>
 <p>You can attempt to practice your jumps with your eyes closed if you want to memorise the section faster. Again, start off slow and speed it up gradually, making sure you’re hitting every note correctly!</p>
@@ -479,24 +537,35 @@
  <em>The opening to <a href="https://youtu.be/O4pC2Cc_hAo">Liszt’s transcription of Schubert’s Erlkönig</a></em>
  </center>
  <br>
-</li>
-</ol>
-<div class="admonition example">
-<div class="admonition-title">
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
+ <div class="admonition-title">
+ <div id="admonition-example-title">
 <p>Example</p>
 </div>
-<div>
-<p>For the above example, loosen up your wrists, but keep your fingers at the same distance. A technique to reduce fatigue would be to alternate your 4th and 5th finger between each octave spam, similar to how you alternate your fingers during a long trill.</p>
+ <a class="admonition-anchor-link" href="technical.html#admonition-example"></a>
+ </div>
+ <div>
+<pre><code> For the above example, loosen up your wrists, but keep your fingers at the same distance. A technique to reduce fatigue would be to alternate your 4th and 5th finger between each octave spam, similar to how you alternate your fingers during a long trill.
+</code></pre>
 </div>
-</div>
-<ol start="4">
-<li>Do not over-practise. Once your arms begin to strain, it’s time to take a break. </li>
-<li>Don't lose hope. One shall eventually reach the level of doing Heroic Polonaise at full speed with practice (the writer himself hasn't gotten to this yet).</li>
-<li>After mastering the octave <del>jack</del> spam, you’re gonna also see improvements in other areas outside playing the piano. ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)</li>
+ </div>
+</li>
+<li>
+<p>Do not over-practise. Once your arms begin to strain, it’s time to take a break. </p>
+</li>
+<li>
+<p>Don't lose hope. One shall eventually reach the level of doing Heroic Polonaise at full speed with practice (the writer himself hasn't gotten to this yet).</p>
+</li>
+<li>
+<p>After mastering the octave <del>jack</del> spam, you’re gonna also see improvements in other areas outside playing the piano. ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)</p>
+</li>
 </ol>
-<div class="admonition note">
+<div id="admonition-note-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
+<div id="admonition-note-1-title">
 <p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-note-1"></a>
 </div>
 <div>
 <p><strong>A note from Myehs:</strong> I have hands that aren’t that big, so when playing octaves, I mostly have to play my fingers flat instead of curving them like you usually do.</p>
@@ -511,9 +580,12 @@
 <li>To emphasise certain notes of a chord, the fingers of the notes you want emphasised should be lower than the rest. That way, when you press down, the lowered fingers will produce a louder sound, placing emphasis on the notes.</li>
 <li>To arpeggiate a chord, tilt your wrist such that when you drop your hands to hit the keys, it’ll naturally hit the keys in a certain order, be it ascending or descending.</li>
 </ol>
-<div class="admonition tip">
+<div id="admonition-tip-5" class="admonition admonish-tip" role="note" aria-labelledby="admonition-tip-5-title">
 <div class="admonition-title">
+<div id="admonition-tip-5-title">
 <p>Tip</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-tip-5"></a>
 </div>
 <div>
 <p><a href="https://youtu.be/m4KrefQBHGs?t=596">Tips for playing chords</a> (recommended by LIN)</p>
@@ -538,17 +610,23 @@
 <ul>
 <li>When glissing up, the 2nd - 4th finger is what I usually go to. The idea is that your thumb is as resilient in maintaining the gliss as 2-3 of your other fingers. However, in some cases, I would actually use my 4th and 5th finger to gliss.</li>
 </ul>
-<div class="admonition note">
+<div id="admonition-note-2" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-2-title">
 <div class="admonition-title">
+<div id="admonition-note-2-title">
 <p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-note-2"></a>
 </div>
 <div>
 <p>Gliss with any finger you like, this is just an example.</p>
 </div>
 </div>
-<div class="admonition warning">
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
 <div class="admonition-title">
+<div id="admonition-warning-title">
 <p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="technical.html#admonition-warning"></a>
 </div>
 <div>
 <p>Trim your nails if you're glissing with them.</p>
@@ -601,6 +679,10 @@
 	<p style='font-size: 20px'><span style="font-style: italic">People: <em>breathes</em> <br> Birb: <strong>ayo did you listen to Alkan's Concerto?</strong></span><br><span style="font-size: 14px">― Hung Doan</span>
 </center>
 </blockquote>
+                        </div>
+                        <div class="sidetoc">
+                            <nav class="pagetoc"></nav>
+                        </div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -615,22 +697,23 @@
 
         </div>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript" src="theme/js/sidebar.js"></script>
-        <script type="text/javascript">
+        <script src="theme/js/pagetoc.js"></script>
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+    </div>
     </body>
 </html>
