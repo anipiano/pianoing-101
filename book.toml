@@ -16,8 +16,8 @@ assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "light"
-additional-css = ["theme/css/mdbook-admonish.css", "theme/css/sidebar-style.css"]
-additional-js = ["theme/js/sidebar.js"]
+additional-css = ["theme/css/mdbook-admonish.css", "theme/css/pagetoc.css"]
+additional-js = ["theme/js/pagetoc.js"]
 git-repository-url = "https://github.com/pianoguides/pianoguides.github.io"
 input-404 = "not-found.md"
 
