@@ -18,7 +18,7 @@ default-theme = "light"
 preferred-dark-theme = "light"
 additional-css = ["theme/css/mdbook-admonish.css", "theme/css/pagetoc.css"]
 additional-js = ["theme/js/pagetoc.js"]
-git-repository-url = "https://github.com/pianoguides/pianoguides.github.io"
+git-repository-url = "https://github.com/anipiano/pianoing-101"
 input-404 = "not-found.md"
 
 [output.html.print]
